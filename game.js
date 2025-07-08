@@ -379,6 +379,10 @@ class EldenRingMMORPG {
     }
     
     updatePlayers(presence) {
+        if (!presence) {
+            return;
+        }
+        
         Object.entries(presence).forEach(([clientId, playerData]) => {
             if (clientId === this.room.clientId) return;
             
@@ -432,4 +436,3 @@ class EldenRingMMORPG {
 
 // Initialize the game
 new EldenRingMMORPG();
-
