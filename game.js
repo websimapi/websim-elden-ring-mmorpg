@@ -386,7 +386,7 @@ class EldenRingMMORPG {
         Object.entries(presence).forEach(([clientId, playerData]) => {
             if (clientId === this.room.clientId) return;
             
-            if (playerData.position) {
+            if (playerData && playerData.position) {
                 // Create character if it doesn't exist
                 if (!this.characterSystem.getCharacter(clientId)) {
                     this.characterSystem.createCharacter(clientId, playerData.position);
